@@ -1,0 +1,21 @@
+Product: Beta Driver App (Next Gen)
+Version: 5.0 (Beta)
+Launch Date: Q3 2024
+
+Overview:
+Beta Driver is the redesigned driver-facing mobile app with improved navigation, 
+earnings visibility, and in-app support.
+
+Key Features:
+- Predictive destination suggestions based on time and location
+- Earnings goal tracker with daily/weekly targets
+- One-tap in-app support with 2-minute response SLA
+- Background noise cancellation for passenger calls
+
+Target Users: Uber driver-partners globally
+
+Known Issues:
+- Predictive suggestions accuracy drops in suburban zones
+- Earnings tracker does not yet support UberEats deliveries
+
+Pricing: Free for all driver-partners

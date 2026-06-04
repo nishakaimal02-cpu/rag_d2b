@@ -1,0 +1,23 @@
+Product: Alpha Analytics Dashboard
+Version: 3.2
+Launch Date: March 2024
+
+Overview:
+Alpha is Uber's internal analytics dashboard used by operations teams to monitor ride demand, 
+driver supply, and pricing efficiency across cities.
+
+Key Features:
+- Real-time surge pricing visualization
+- City-level heat maps for supply/demand imbalance
+- Driver earnings breakdown by time of day
+- Weekly cohort retention reports
+
+Target Users: City operations managers, pricing analysts, regional GMs
+
+Known Issues:
+- Dashboard loads slowly for cities with >500k weekly trips
+- Export to CSV currently limited to 90-day windows
+
+Pricing: Internal tool, no external pricing
+
+
