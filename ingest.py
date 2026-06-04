@@ -67,10 +67,23 @@ def ingest_docs():
     # 2. Stores vectors in ChromaDB
     # 3. Stores original text + all metadata (filename, page, start_index) alongside vectors
     # persist_directory saves everything to disk so it survives app restarts
-    vectorstore = Chroma.from_documents(
-        documents=chunks,
-        embedding=embeddings,
-        persist_directory=CHROMA_PATH
+  
+    import chromadb
+    IS_CLOUD = not os.path.exists("/Users")
+
+    if IS_CLOUD:
+        chroma_client = chromadb.EphemeralClient()
+        vectorstore = Chroma.from_documents(
+            documents=chunks,
+            embedding=embeddings,
+            client=chroma_client,
+            collection_name="langchain"
+    )
+    else:
+        vectorstore = Chroma.from_documents(
+            documents=chunks,
+            embedding=embeddings,
+            persist_directory=CHROMA_PATH
     )
     print(f"   Stored in ChromaDB at '{CHROMA_PATH}/'")
     return vectorstore

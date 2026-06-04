@@ -14,13 +14,24 @@ load_dotenv()
 # Must match the path used in ingest.py
 CHROMA_PATH = "/tmp/chroma_db"
 
+
 def load_vectorstore():
-    """Load existing ChromaDB index from disk — no rebuilding, no API calls."""
+    import chromadb
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    vectorstore = Chroma(
-        persist_directory=CHROMA_PATH,
-        embedding_function=embeddings
-    )
+    IS_CLOUD = not os.path.exists("/Users")
+    
+    if IS_CLOUD:
+        chroma_client = chromadb.EphemeralClient()
+        vectorstore = Chroma(
+            client=chroma_client,
+            collection_name="langchain",
+            embedding_function=embeddings
+        )
+    else:
+        vectorstore = Chroma(
+            persist_directory=CHROMA_PATH,
+            embedding_function=embeddings
+        )
     return vectorstore
 
 def get_semantic_results(query, vectorstore, k=3):
