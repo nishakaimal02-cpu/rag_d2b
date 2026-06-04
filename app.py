@@ -68,7 +68,7 @@ with st.sidebar:
     st.divider()
     
     # Index status
-    if os.path.exists("chroma_db"):
+    if os.path.exists("/tmp/chroma_db"):
         st.success("✅ Index loaded")
     else:
         st.warning("⚠️ No index found. Click Build Index.")
@@ -98,7 +98,7 @@ with st.sidebar:
         st.rerun()
 
 # ── Guard — stop if no index exists ──────────────────────────
-if not os.path.exists("chroma_db"):
+if not os.path.exists("/tmp/chroma_db"):
     st.warning("👈 Click 'Build / Rebuild Index' in the sidebar to get started.")
     st.stop()
 

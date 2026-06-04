@@ -12,7 +12,7 @@ import os
 load_dotenv()
 
 # Must match the path used in ingest.py
-CHROMA_PATH = "chroma_db"
+CHROMA_PATH = "/tmp/chroma_db"
 
 def load_vectorstore():
     """Load existing ChromaDB index from disk — no rebuilding, no API calls."""

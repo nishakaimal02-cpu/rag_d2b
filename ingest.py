@@ -14,7 +14,7 @@ load_dotenv()
 
 # Where your documents live and where ChromaDB will save the index
 DOCS_PATH = "docs"
-CHROMA_PATH = "chroma_db"
+CHROMA_PATH = "/tmp/chroma_db"
 
 def ingest_docs():
     import shutil
