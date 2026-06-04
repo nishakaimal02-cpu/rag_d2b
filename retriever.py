@@ -18,7 +18,7 @@ CHROMA_PATH = "/tmp/chroma_db"
 def load_vectorstore():
     import chromadb
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    IS_CLOUD = not os.path.exists("/Users")
+    IS_CLOUD = os.path.exists("/mount/src")
     
     if IS_CLOUD:
         chroma_client = chromadb.EphemeralClient()

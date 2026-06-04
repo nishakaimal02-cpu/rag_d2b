@@ -69,7 +69,7 @@ def ingest_docs():
     # persist_directory saves everything to disk so it survives app restarts
   
     import chromadb
-    IS_CLOUD = not os.path.exists("/Users")
+    IS_CLOUD = os.path.exists("/mount/src")
 
     if IS_CLOUD:
         chroma_client = chromadb.EphemeralClient()
